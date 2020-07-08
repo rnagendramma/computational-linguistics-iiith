@@ -1,0 +1,19 @@
+In goal-1 experiment that is forming the meaningful sentences ,I observed the following functionalities these are:
+
+1.Dropdown menu: From this i was selected one of the language amoung them.This acts like dropdown function.
+
+2.Array/List : These are set of words which are used in forming a meaningful sentence.
+
+3.Reform the sentence button: This function is like reset function it is called when want to reset the sentence.
+
+4.Check the currectness of the sentence: When we click this button it checks the syntax and symantix of the sentence
+
+  that is it displays wether the user forming sentence is currect or not.
+
+5.Get the currect sentence: If the the user formed sentence is wrong then if we click this button then it displays the currect sentence.
+
+ here it acts like Anagram function.
+
+6.Hide the currect sentence: After displaying the currect sentence, when we click this button then it hides the currect sentence.In this it works as
+
+ hide button functionality.
