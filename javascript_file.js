@@ -23,19 +23,23 @@ var Hsen=["राम और श्याम बाजार गयें","र�
 
 function My_selection()
 {
-		document.getElementById("p3").innerHTML=""
+	document.getElementById("p3").innerHTML=""
+	document.getElementById("p4").innerHTML=""
+    document.getElementById("p5").innerHTML=""
+    document.getElementById("resen").style.visibility="hidden";
 
 if(document.getElementById("eng").selected)
 {
 
 	document.getElementById("p1").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given words"
     document.getElementById("p2").innerHTML="(select the buttons in proper order)"
-    /* Random function to select Random sentences */
+    
 	var en=Esen[Math.floor(Math.random() * Esen.length)];
 	 var en1=en.split(" ");
 	var page = document.getElementsByTagName("p")[2];
 	var i=0
-    /* Random function to jumble words in the sentences */
+	var count=0
+  
 	for(i=0;i<en1.length;i++)
     {
 	    j=Math.floor(Math.random()*en1.length)
@@ -48,6 +52,19 @@ if(document.getElementById("eng").selected)
 		var button = document.createElement("button")
         button.innerHTML = en1[i]
         page.appendChild(button)
+		button.addEventListener ("click",function()
+        {
+            document.getElementById("p4").innerHTML="Formed Sentences (after selecting words):"
+            document.getElementById("p5").innerHTML+=this.innerHTML+" ";
+            this.style.visibility="hidden";
+            count=count+1;
+            if(count == 1)
+            {
+                document.getElementById("resen").style.visibility="visible";
+            }
+
+        });
+
     }
 } 
     else if (document.getElementById("hind").selected) 
@@ -58,6 +75,7 @@ if(document.getElementById("eng").selected)
     var hi1=hi.split(" ");
 	var page = document.getElementsByTagName("p")[2];
 	var i=0
+	var count=0
 	for(i=0;i<hi1.length;i++)
     {
 	    j=Math.floor(Math.random()*hi1.length)
@@ -70,6 +88,19 @@ if(document.getElementById("eng").selected)
         var button = document.createElement("button")
         button.innerHTML = hi1[i]
         page.appendChild(button)
+		button.addEventListener ("click",function()
+        {
+            document.getElementById("p4").innerHTML="Formed Sentences (after selecting words)"
+            document.getElementById("p5").innerHTML+=this.innerHTML+" ";
+            this.style.visibility="hidden";
+            count=count+1;
+            if(count == 1)
+            {
+                document.getElementById("resen").style.visibility="visible";
+            }
+
+        });
+
     }
    }
     else
