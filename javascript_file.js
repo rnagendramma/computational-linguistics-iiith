@@ -10,7 +10,6 @@ var s9=["the teacher returned the book after she noticed the error","the teacher
 var s10=["I told her that I bought a book yesterday","I told her yesterday that I bought a book","yesterday I told her that I bought a book","I bought a book that I told her yesterday","I bought a book yesterday that I told her","yesterday I bought a book that I told her"]
 var Esen=["John ate an apple before afternoon","some students like to study in the night","John and Mary went to church","John went to church after eating","did he go to market","he did go to market","the woman who called my sister sells cosmetics","John goes to the library and studies","John ate an apple so did she","the teacher returned the book after she noticed the error","I told her that I bought a book yesterday"]
 
-
 var s11=["राम और श्याम बाजार गयें","राम और श्याम गयें बाजार","बाजार गयें राम और श्याम","गयें बाजार राम और श्याम"]
 var s12=["राम सोया और श्याम भी","श्याम सोया और राम भी","सोया श्याम और राम भी","सोया राम और श्याम भी"]
 var s13=["मैंने उसे बताया कि राम सो रहा है","मैंने उसे बताया कि सो रहा है राम","उसे मैंने बताया कि राम सो रहा है","उसे मैंने बताया कि सो रहा है राम","मैंने बताया उसे कि राम सो रहा है","मैंने बताया उसे कि सो रहा है राम","उसे बताया मैंने कि राम सो रहा है","उसे बताया मैंने कि सो रहा है राम","बताया मैंने उसे कि राम सो रहा है","बताया मैंने उसे कि सो रहा है राम","बताया उसे मैंने कि राम सो रहा है","बताया उसे मैंने कि सो रहा है राम"]
@@ -23,90 +22,100 @@ var Hsen=["राम और श्याम बाजार गयें","र�
 
 function My_selection()
 {
-	document.getElementById("p3").innerHTML=""
-	document.getElementById("p4").innerHTML=""
-    document.getElementById("p5").innerHTML=""
+    document.getElementById("d1").innerHTML=""
+    document.getElementById("d2").innerHTML=""
+    document.getElementById("d3").innerHTML=""
     document.getElementById("resen").style.visibility="hidden";
-
 if(document.getElementById("eng").selected)
 {
 
 	document.getElementById("p1").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given words"
-    document.getElementById("p2").innerHTML="(select the buttons in proper order)"
-    
-	var en=Esen[Math.floor(Math.random() * Esen.length)];
-	 var en1=en.split(" ");
-	var page = document.getElementsByTagName("p")[2];
-	var i=0
-	var count=0
-  
-	for(i=0;i<en1.length;i++)
+    document.getElementById("p2").innerHTML="(select the buttons in proper order)";
+    var count=0
+	var E=Esen[Math.floor(Math.random() * Esen.length)];
+	var body = document.getElementsByTagName("p")[2];
+    E1=E.split(" ");
+	for(i=0;i<E1.length;i++)
     {
-	    j=Math.floor(Math.random()*en1.length)
-	    en=en1[i];
-	    en1[i]=en1[j]
-	    en1[j]=en;
+	    j=Math.floor(Math.random()*E1.length)
+	    E=E1[i];
+	    E1[i]=E1[j]
+	    E1[j]=E;
     }
-    for(i=0;i<en1.length;i++)
+    for(i=0;i<E1.length;i++)
     {
-		var button = document.createElement("button")
-        button.innerHTML = en1[i]
-        page.appendChild(button)
-		button.addEventListener ("click",function()
+        var button = document.createElement("button");
+		button.id='button'+i;
+        button.innerHTML = E1[i]
+        body.appendChild(button);
+        
+        button.addEventListener ("click",function()
         {
-            document.getElementById("p4").innerHTML="Formed Sentences (after selecting words):"
-            document.getElementById("p5").innerHTML+=this.innerHTML+" ";
+            document.getElementById("d2").innerHTML="Formed Sentence<span style='font-style:italic;color:blue;font-weight:lighter'>(after selecting words):</span>";
+            document.getElementById("d3").innerHTML+=this.innerHTML+" ";
             this.style.visibility="hidden";
             count=count+1;
             if(count == 1)
             {
                 document.getElementById("resen").style.visibility="visible";
             }
-
+        
         });
-
     }
-} 
-    else if (document.getElementById("hind").selected) 
+    }
+    else if (document.getElementById("hindi").selected) 
     { 
-	document.getElementById("p1").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given words"
-	document.getElementById("p2").innerHTML="(select the buttons in proper order)"
-	var hi=Hsen[Math.floor(Math.random() * Hsen.length)];
-    var hi1=hi.split(" ");
-	var page = document.getElementsByTagName("p")[2];
-	var i=0
+	 document.getElementById("p1").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given words";
+	 document.getElementById("p2").innerHTML="(select the buttons in proper order):";
 	var count=0
-	for(i=0;i<hi1.length;i++)
+	var H=Hsen[Math.floor(Math.random() * Hsen.length)];
+    H1=H.split(" ");
+	var body = document.getElementsByTagName("p")[2];
+	for(i=0;i<H1.length;i++)
     {
-	    j=Math.floor(Math.random()*hi1.length)
-	    hi=hi1[i];
-	    hi1[i]=hi1[j]
-	    hi1[j]=hi;
+	    j=Math.floor(Math.random()*H1.length)
+	    H=H1[i];
+	    H1[i]=H1[j]
+	    H1[j]=H;
     }
-    for(i=0;i<hi1.length;i++)
+    for(i=0;i<H1.length;i++)
     {
-        var button = document.createElement("button")
-        button.innerHTML = hi1[i]
-        page.appendChild(button)
-		button.addEventListener ("click",function()
+        var button = document.createElement("button");
+		button.id='button'+i;
+        button.innerHTML = H1[i]
+        body.appendChild(button)
+
+        button.addEventListener ("click",function()
         {
-            document.getElementById("p4").innerHTML="Formed Sentences (after selecting words)"
-            document.getElementById("p5").innerHTML+=this.innerHTML+" ";
+            document.getElementById("d2").innerHTML="Formed Sentence<span style='font-style:italic;color:blue;font-weight:lighter'>(after selecting words):</span>";
+
+            document.getElementById("d3").innerHTML+=this.innerHTML+" ";
             this.style.visibility="hidden";
             count=count+1;
             if(count == 1)
             {
                 document.getElementById("resen").style.visibility="visible";
             }
-
+        
         });
-
     }
-   }
+    }
     else
     {
 	    document.getElementById("p1").innerHTML=""
 	    document.getElementById("p2").innerHTML=""
-	    document.getElementById("p3").innerHTML=""
+	    document.getElementById("d1").innerHTML=""
+    }
+}
+
+function Reformfun()
+{
+    for(i=0;i<E1.length||i<H1.length;i++)
+	{
+        if(document.getElementById('button'+i).style.visibility=="hidden")
+    	document.getElementById('button'+i).style.visibility="visible";
+	    document.getElementById('d2').innerHTML=""
+	    document.getElementById('d3').innerHTML=""
+	    document.getElementById('resen').style.visibility="hidden"
     }
 }

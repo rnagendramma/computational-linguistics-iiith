@@ -1,26 +1,25 @@
-<!DOCtype html>
+<!DOCTYPE html>
 <html>
-	<head><title>First Experiment</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<link rel="stylesheet" href="css_file.css">
-	</head>
-	<body>
+<head>
+    <title>First Expriment</title>
+    <link rel="stylesheet" href="css_file.css">  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
 	<script src="javascript_file.js"></script>
-	<h2> Experiment</h2>
-	<center>
-	<select id="select" onchange="My_selection()">
-	<option value="none" selected>---Select Language---</option>
-	<option value="eng" id="eng">English</option>
-	<option value="hind" id="hind">Hindi</option>
-	</select><br>
-	<p id="p1"></p>
-	<p id="p2"></p>
-	<p id="p3"></p>
-	<p id="p4"></p>
-	<p id="p5"></p>
-	<button id="resen"  style="visibility: hidden;">Re-form the sentence</button>
-	</center>
-	</body>
+    <h1>Experiment</h1>
+    <center>
+    <select class="select" onchange="My_selection()">
+    <option value="none" selected>---Select Language---</option>
+    <option  value="eng"  id="eng">English</option>
+    <option value="hindi"  id="hindi">Hindi</option>
+    </select>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="d1"></p>
+    <p id="d2"></p>
+    <p id="d3"></p>
+    <button id="resen"  style="visibility: hidden" onclick="Reformfun()">Re-form the sentence</button>
+    </center>
+</body>
 </html>
-	
-	
