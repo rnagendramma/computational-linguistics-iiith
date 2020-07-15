@@ -8,6 +8,7 @@ var s7=["John goes to the library and studies","John studies and goes to the lib
 var s8=["John ate an apple so did she","she ate an apple so did John"]
 var s9=["the teacher returned the book after she noticed the error","the teacher noticed the error after she returned the book","after the teacher returned the book she noticed the error","after the teacher noticed the error she returned the book","she returned the book after the teacher noticed the error","she noticed the error after the teacher returned the book","after she returned the book the teacher noticed the error","after she noticed the error the teacher returned the book"]
 var s10=["I told her that I bought a book yesterday","I told her yesterday that I bought a book","yesterday I told her that I bought a book","I bought a book that I told her yesterday","I bought a book yesterday that I told her","yesterday I bought a book that I told her"]
+
 var Esen=["John ate an apple before afternoon","some students like to study in the night","John and Mary went to church","John went to church after eating","did he go to market","he did go to market","the woman who called my sister sells cosmetics","John goes to the library and studies","John ate an apple so did she","the teacher returned the book after she noticed the error","I told her that I bought a book yesterday"]
 
 var s11=["राम और श्याम बाजार गयें","राम और श्याम गयें बाजार","बाजार गयें राम और श्याम","गयें बाजार राम और श्याम"]
@@ -17,6 +18,7 @@ var s14=["राम खाकर सोया","खाकर राम सोय
 var s15=["बिल्लियों को मारकर कुत्ता सो गया"	,"मारकर बिल्लियों को कुत्ता सो गया"	 ,"बिल्लियों को मारकर सो गया कुत्ता","मारकर बिल्लियों को सो गया कुत्ता"	,"कुत्ता सो गया बिल्लियों को मारकर"	,"कुत्ता सो गया मारकर बिल्लियों को","सो गया कुत्ता बिल्लियों को मारकर","सो गया कुत्ता मारकर बिल्लियों को"]
 var s16=["एक लाल किताब वहाँ है","एक लाल किताब है वहाँ","वहाँ है एक लाल किताब","है वहाँ एक लाल किताब"]
 var s17=["एक बड़ी सी किताब वहाँ है	","एक बड़ी सी किताब है वहाँ","बड़ी सी एक किताब वहाँ है","बड़ी सी एक किताब है वहाँ","वहाँ है एक बड़ी सी किताब","वहाँ है बड़ी सी एक किताब"," है वहाँ एक बड़ी सी किताब","है वहाँ बड़ी सी एक किताब"]  
+
 var Hsen=["राम और श्याम बाजार गयें","राम सोया और श्याम भी","मैंने उसे बताया कि राम सो रहा है","राम खाकर सोया","बिल्लियों को मारकर कुत्ता सो गया","एक लाल किताब वहाँ है","एक बड़ी सी किताब वहाँ है"]
 
 
@@ -26,6 +28,8 @@ function My_selection()
     document.getElementById("d2").innerHTML=""
     document.getElementById("d3").innerHTML=""
     document.getElementById("resen").style.visibility="hidden";
+	document.getElementById("correct").style.visibility="hidden";
+
 if(document.getElementById("eng").selected)
 {
 
@@ -55,11 +59,17 @@ if(document.getElementById("eng").selected)
             document.getElementById("d3").innerHTML+=this.innerHTML+" ";
             this.style.visibility="hidden";
             count=count+1;
-            if(count == 1)
+            if(count>0)
             {
                 document.getElementById("resen").style.visibility="visible";
             }
-        
+				var k=String(document.getElementById("d3").innerHTML).replace(/\s+$/,"");
+				k1=k.split(" ");
+            if(E1.length == k1.length)
+            {
+                document.getElementById("correct").style.visibility="visible";
+            }
+
         });
     }
     }
@@ -88,15 +98,19 @@ if(document.getElementById("eng").selected)
         button.addEventListener ("click",function()
         {
             document.getElementById("d2").innerHTML="Formed Sentence<span style='font-style:italic;color:blue;font-weight:lighter'>(after selecting words):</span>";
-
             document.getElementById("d3").innerHTML+=this.innerHTML+" ";
             this.style.visibility="hidden";
             count=count+1;
-            if(count == 1)
+            if(count>0)
             {
                 document.getElementById("resen").style.visibility="visible";
+            } 
+				var k=String(document.getElementById("d3").innerHTML).replace(/\s+$/,"");
+				k1=k.split(" ");
+            if(H1.length == k1.length)
+            {
+                document.getElementById("correct").style.visibility="visible";
             }
-        
         });
     }
     }
@@ -113,9 +127,13 @@ function Reformfun()
     for(i=0;i<E1.length||i<H1.length;i++)
 	{
         if(document.getElementById('button'+i).style.visibility=="hidden")
+		{
     	document.getElementById('button'+i).style.visibility="visible";
 	    document.getElementById('d2').innerHTML=""
 	    document.getElementById('d3').innerHTML=""
 	    document.getElementById('resen').style.visibility="hidden"
+		document.getElementById('correct').style.visibility="hidden"
+		}
+
     }
 }
