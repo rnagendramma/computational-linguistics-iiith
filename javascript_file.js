@@ -28,6 +28,7 @@ function My_selection()
 	document.getElementById("d4").innerHTML=""
     document.getElementById("resen").style.visibility="hidden";
 	document.getElementById("correct").style.visibility="hidden";
+	document.getElementById("getcorrect").style.visibility="hidden";
 
 if(document.getElementById("eng").selected)
 {
@@ -133,6 +134,7 @@ function Reformfun()
 		document.getElementById('d4').innerHTML=""
 	    document.getElementById('resen').style.visibility="hidden"
 		document.getElementById('correct').style.visibility="hidden"
+		document.getElementById('getcorrect').style.visibility="hidden";
 		}
 
     }
@@ -149,7 +151,7 @@ function correctfun(){
         {
             for(r=0;r<earray[q].length;r++)
             {
-                if(p== earray[q][j])
+                if(p== earray[q][r])
                 {
                     a++;
                 }
@@ -160,7 +162,7 @@ function correctfun(){
     {
         for(q=0;q<7;q++)
         {
-            for(r=0;j<harray[q].length;r++)
+            for(r=0;r<harray[q].length;r++)
             {
                 if(p==harray[q][r])
                 {
@@ -176,5 +178,6 @@ function correctfun(){
         else
         {
             document.getElementById("d4").innerHTML="<span style='color:red; font-size:28px'>Wrong answer!!!</span>"
+			document.getElementById("getcorrect").style.visibility="visible";
         }
 } 

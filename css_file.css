@@ -40,3 +40,10 @@ button {
     font-size: 15px;
     margin: 10px;
 }
+#getcorrect{
+	 width: 200px;
+    height: 30px;
+    font-size: 15px;
+    margin: 10px; 
+    border-radius: 2px;
+}
