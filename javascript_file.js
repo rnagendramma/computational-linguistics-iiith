@@ -26,10 +26,10 @@ function My_selection()
     document.getElementById("d2").innerHTML=""
     document.getElementById("d3").innerHTML=""
 	document.getElementById("d4").innerHTML=""
+	document.getElementById("getanrs").innerHTML=""
     document.getElementById("resen").style.visibility="hidden";
 	document.getElementById("correct").style.visibility="hidden";
-	document.getElementById("getcorrect").style.visibility="hidden";
-
+	document.getElementById("getcorrect").innerHTML="Get Correct Sentence";
 if(document.getElementById("eng").selected)
 {
 
@@ -132,6 +132,7 @@ function Reformfun()
 	    document.getElementById('d2').innerHTML=""
 	    document.getElementById('d3').innerHTML=""
 		document.getElementById('d4').innerHTML=""
+		document.getElementById('getanrs').innerHTML=""
 	    document.getElementById('resen').style.visibility="hidden"
 		document.getElementById('correct').style.visibility="hidden"
 		document.getElementById('getcorrect').style.visibility="hidden";
@@ -162,7 +163,7 @@ function correctfun(){
     {
         for(q=0;q<7;q++)
         {
-            for(r=0;r<harray[q].length;r++)
+			  for(r=0;r<harray[q].length;r++)
             {
                 if(p==harray[q][r])
                 {
@@ -181,3 +182,65 @@ function correctfun(){
 			document.getElementById("getcorrect").style.visibility="visible";
         }
 } 
+
+
+function togglefun()
+{
+  if(document.getElementById("eng").selected)
+{
+var arr=earray;
+var sen=Esen;
+        var c=10;
+}
+
+if(document.getElementById("hindi").selected)
+{
+var arr=harray;
+var sen=Hsen;
+        var c=7;
+}
+    i=Math.floor(Math.random()*c);
+   E=arr[i][0];
+   E1=E.split(" ");
+
+      var arr1="";
+
+if(document.getElementById("getcorrect").innerHTML == "Get Correct Sentence")
+{
+for(i=0;i<c;i++){
+ if(E == arr[i][0]){
+ for(j=0;j<arr[i].length;j++){
+arr1 += arr[i][j]+"<br>";
+ }
+ document.getElementById("getanrs").innerHTML=arr1;
+ document.getElementById("getcorrect").innerHTML="Hide the correct Sentence";
+ break;
+}
+}
+}
+ else if(document.getElementById("getcorrect").innerHTML == "Hide the correct Sentence"){
+ document.getElementById("getanrs").innerHTML="";
+ 
+ document.getElementById("getcorrect").innerHTML="Get Answers";
+ }
+ else if(document.getElementById("getcorrect").innerHTML == "Get Answers"){
+ for(i=0;i<c;i++){
+ if(E == arr[i][0]){
+ for(j=0;j<arr[i].length;j++){
+arr1+= arr[i][j]+"<br>";
+ }
+ document.getElementById("getanrs").innerHTML=arr1;
+ document.getElementById("getcorrect").innerHTML="Hide the correct Sentence";
+ break;
+}
+}
+ }
+  }
+
+
+
+
+   
+    
+
+
